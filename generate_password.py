@@ -11,8 +11,8 @@ class PasswordGenerator:
         }
 
     def generate_password(self, length, include=None, exclude=None, min_strength=3):
-        if length < 4:
-            raise ValueError("Password length should be at least 4 characters.")
+        if length < 6:
+            raise ValueError("Password length should be at least 6 characters.")
 
         if include is None:
             include = list(self.character_sets.keys())
@@ -23,7 +23,7 @@ class PasswordGenerator:
             character_set = ''.join([char for char in character_set if char not in exclude])
 
         if len(character_set) < min_strength:
-            raise ValueError("Password strength requirement not met with the selected character set.")
+            raise ValueError("Password strength  not met with the selected character set.")
 
         password = ''.join(random.choice(character_set) for _ in range(length))
         return password
@@ -33,13 +33,13 @@ def main():
 
     while True:
         try:
-            length = int(input("Enter the desired password length (at least 4): "))
-            if length < 4:
-                print("Password length should be at least 4 characters. Please try again.")
+            length = int(input("Enter the desired password length (at least 6): "))
+            if length < 6:
+                print("Password length should be at least 6 characters. Please try again.")
                 continue
 
             include = input("Enter character types to include (lowercase, uppercase, digits, special), separated by commas (default: all): ").split(',')
-            exclude = input("Enter characters to exclude (e.g., @#$%): ")
+            exclude = input("Enter characters to exclude (e.g., !&*@#$%): ")
 
             min_strength = int(input("Enter minimum password strength (number of character types): "))
 
