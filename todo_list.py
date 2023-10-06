@@ -63,15 +63,15 @@ def main():
 
         choice = input("Enter your choice (1/2/3/4/5): ")
 
-        if choice == 1:
+        if choice == '1':
             create_task()
-        elif choice == 2:
+        elif choice == '2':
             track_tasks()
-        elif choice == 3:
+        elif choice == '3':
             mark_completed()
-        elif choice == 4 :
+        elif choice == '4' :
             update_task()
-        elif choice == 5:
+        elif choice == '5':
             print("Goodbye!")
             break
         else:
